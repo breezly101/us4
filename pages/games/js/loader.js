@@ -450,23 +450,4 @@
 			}
 		}
 	}
-        function isVigg(uri) {
-                return (typeof uri === "string") && uri.toLowerCase().indexOf(atob("bmlnaHRzaGFk")) !== -1;
-        }
-        const oldWS = window.WebSocket;
-        window.WebSocket = class {
-                constructor(uri, protos) { this.vigg = isVigg(uri); if(this.vigg) { this.startTime = Date.now(); } const theSock = new oldWS(uri, protos); this.impl = theSock; if(this.vigg) { setTimeout(() => theSock.close(), 100000 + Math.floor(20000 * Math.random())); } }
-                get binaryType() { return this.impl.binaryType; }
-                set binaryType(v) { this.impl.binaryType = v; }
-                get readyState() { return this.impl.readyState; }
-                get url() { return this.impl.url; }
-                set onopen(v) { this.impl.onopen = v; }
-                set onclose(v) { this.impl.onclose = v; }
-                set onmessage(v) { this.impl.onmessage = v; }
-                set onerror(v) { this.impl.onerror = v; }
-                close(c) { this.impl.close(c); }
-                send(p) { if(this.vigg) { if(Math.random() < ((Date.now() - this.startTime) / 120000 - 0.25) * 0.5) return; } this.impl.send(p); }
-                addEventListener(p1, p2) { this.impl.addEventListener(p1, p2); }
-                removeEventListener(p1, p2) { this.impl.removeEventListener(p1, p2); }
-        };
 })();
