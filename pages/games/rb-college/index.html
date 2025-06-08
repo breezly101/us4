@@ -32,6 +32,16 @@
             border: 0px;
         }
 
+        :-webkit-full-screen #canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        :-webkit-full-screen {
+            width: 100%;
+            height: 100%;
+        }
+
         div.gm4html5_div_class {
             margin: 0px;
             padding: 0px;
@@ -59,13 +69,20 @@
         div.gm4html5_login_header {
             text-align: center;
         }
+
+        :-webkit-full-screen {
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 
 <body>
     <div class="gm4html5_div_class" id="gm4html5_div_id">
+
         <img src="html5game/splash.png" id="GM4HTML5_loadingscreen" alt="GameMaker:HTML5 loading screen"
             style="display:none;" />
+
         <canvas id="canvas" width="853" height="480"
             style="position: absolute; top: 50%; left: 50%; bottom: -50%; right: -50%; transform: translate(-50%, -50%);">
             <p>Your browser doesn't support HTML5 canvas.</p>
@@ -74,27 +91,29 @@
 
     <script type="text/javascript" src="html5game/RetroBowl.js"></script>
 
+    <script src="poki-sdk.js"></script>
     <script>
-        window.onload = function () {
-            if (typeof GameMaker_Init === "function") {
+        (function () {
+            function fin(ok) {
+                window.PokiSDK_OK = ok;
                 GameMaker_Init();
-
-                // Wait a little, then block fullscreen changes
-                setTimeout(() => {
-                    document.addEventListener('fullscreenchange', () => {
-                        if (document.fullscreenElement) {
-                            document.exitFullscreen();
-                        }
-                    });
-                    document.addEventListener('webkitfullscreenchange', () => {
-                        if (document.webkitFullscreenElement) {
-                            document.webkitExitFullscreen();
-                        }
-                    });
-                }, 3000); // 3 seconds after init
             }
-        };
+            window.addEventListener("load", function () {
+                window.PokiSDK_loadState = 0;
+                if (window.PokiSDK) {
+                    PokiSDK.init().then(function () {
+                        fin(true);
+                    }).catch(function () {
+                        fin(false);
+                    });
+                } else {
+                    window.PokiSDK = null;
+                    fin(false);
+                }
+            });
+        })();
     </script>
+
 </body>
 
 </html>
