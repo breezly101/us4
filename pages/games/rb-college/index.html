@@ -9,7 +9,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta charset="utf-8" />
 
-    <!-- Builtin injector for disabling cache -->
     <meta http-equiv="pragma" content="no-cache" />
 
     <title>Retro Bowl College</title>
@@ -32,13 +31,6 @@
             padding: 0px;
             border: 0px;
         }
-
-        /* Removed fullscreen CSS selectors that might confuse */
-        /* :-webkit-full-screen #canvas,
-        :-webkit-full-screen {
-            width: 100%;
-            height: 100%;
-        } */
 
         div.gm4html5_div_class {
             margin: 0px;
@@ -72,26 +64,13 @@
 
 <body>
     <div class="gm4html5_div_class" id="gm4html5_div_id">
-        <img src="html5game/splash.png" id="GM4HTML5_loadingscreen" alt="GameMaker:HTML5 loading screen" style="display:none;" />
+        <img src="html5game/splash.png" id="GM4HTML5_loadingscreen" alt="GameMaker:HTML5 loading screen"
+            style="display:none;" />
         <canvas id="canvas" width="853" height="480"
             style="position: absolute; top: 50%; left: 50%; bottom: -50%; right: -50%; transform: translate(-50%, -50%);">
             <p>Your browser doesn't support HTML5 canvas.</p>
         </canvas>
     </div>
-
-    <!-- Block fullscreen requests -->
-    <script>
-        document.addEventListener('fullscreenchange', () => {
-            if (document.fullscreenElement) {
-                document.exitFullscreen();
-            }
-        });
-        document.addEventListener('webkitfullscreenchange', () => {
-            if (document.webkitFullscreenElement) {
-                document.webkitExitFullscreen();
-            }
-        });
-    </script>
 
     <script type="text/javascript" src="html5game/RetroBowl.js"></script>
 
@@ -99,6 +78,20 @@
         window.onload = function () {
             if (typeof GameMaker_Init === "function") {
                 GameMaker_Init();
+
+                // Wait a little, then block fullscreen changes
+                setTimeout(() => {
+                    document.addEventListener('fullscreenchange', () => {
+                        if (document.fullscreenElement) {
+                            document.exitFullscreen();
+                        }
+                    });
+                    document.addEventListener('webkitfullscreenchange', () => {
+                        if (document.webkitFullscreenElement) {
+                            document.webkitExitFullscreen();
+                        }
+                    });
+                }, 3000); // 3 seconds after init
             }
         };
     </script>
