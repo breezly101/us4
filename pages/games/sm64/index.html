@@ -29,21 +29,13 @@
       canvas {
         width: 100vw;
         height: 100vh;
-        outline: none; /* Remove focus outline if you want */
-      }
-      #controls {
-        margin-left: 1em;
-        display: flex;
-        align-items: center;
-      }
-      #controller, #dmca {
-        padding-left: 4em;
+        outline: none;
       }
     </style>
   </head>
   <body>
     <div id="container">
-      <!-- Added tabindex="0" to make canvas focusable -->
+      <!-- Make canvas focusable -->
       <canvas class="emscripten" id="canvas" tabindex="0"></canvas>
     </div>
 
@@ -72,30 +64,48 @@
           }, false);
           return canvas;
         })(),
-        setStatus: function(text) {
-        }
+        setStatus: function(text) {}
       };
     </script>
 
+    <!-- Load compiled SM64 build -->
     <script async type="text/javascript" src="sm64.us.f3dex2e.js"></script>
 
+    <!-- Add key input support -->
     <script>
-      // Focus the canvas when the page loads so it receives keyboard input
       window.addEventListener('load', () => {
         const canvas = document.getElementById('canvas');
         canvas.focus();
 
-        // Optional: refocus canvas on click anywhere in the window
-        window.addEventListener('click', () => {
-          canvas.focus();
-        });
+        // Refocus on click
+        window.addEventListener('click', () => canvas.focus());
 
-        // Debug: log key presses to console for testing
-        canvas.addEventListener('keydown', (event) => {
-          if (event.key.toLowerCase() === 'a' || event.key === 'Enter') {
-            console.log(`Key pressed: ${event.key}`);
+        // Example key state object
+        window.keyState = {};
+
+        // Add Z key mapping to Z trigger
+        window.addEventListener('keydown', (e) => {
+          const key = e.key.toLowerCase();
+          if (key === 'z') {
+            window.keyState['Z_TRIG'] = true;
+            e.preventDefault();
           }
         });
+
+        window.addEventListener('keyup', (e) => {
+          const key = e.key.toLowerCase();
+          if (key === 'z') {
+            window.keyState['Z_TRIG'] = false;
+            e.preventDefault();
+          }
+        });
+
+        // Debug logging
+        setInterval(() => {
+          if (window.keyState['Z_TRIG']) {
+            console.log("Z Trigger held");
+          }
+        }, 1000);
       });
     </script>
   </body>
