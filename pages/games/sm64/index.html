@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en-us">
   <head>
@@ -6,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Super Mario 64 on the Web!</title>
     <style>
-      body, html{
+      body, html {
         margin: 0;
         padding: 0;
         width: 100vw;
@@ -43,7 +42,7 @@
   </head>
   <body>
     <div id="container">
-      <canvas class="emscripten" id="canvas"></canvas>
+      <canvas class="emscripten" id="canvas" tabindex="0"></canvas>
     </div>
     <script type='text/javascript'>
       var Module = {
@@ -62,7 +61,7 @@
         },
         canvas: (function() {
           var canvas = document.getElementById('canvas');
-          canvas.width = window.innerWidth; // Todo: how to do this from c++
+          canvas.width = window.innerWidth;
           canvas.height = window.innerHeight;
           canvas.addEventListener("webglcontextlost", function(e) {
             alert('WebGL context lost. You will need to reload the page.');
@@ -76,6 +75,20 @@
     </script>
     <script async type="text/javascript" src="sm64.us.f3dex2e.js"></script>
     <script>
+      // Ensure the canvas is focused and listens for Enter key
+      window.addEventListener('DOMContentLoaded', () => {
+        const canvas = document.getElementById('canvas');
+        canvas.focus();
+
+        canvas.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter') {
+            event.preventDefault();
+            console.log('Enter key pressed!');
+            // If your game needs a start function, call it here.
+            // Example: Module._main(); or canvas.click();
+          }
+        });
+      });
     </script>
   </body>
 </html>
