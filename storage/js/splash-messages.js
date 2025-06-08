@@ -33,6 +33,7 @@ const phrases = [
     `this is definitely schoolwork`,
     `school says no fun`,
     `how many times have u clicked it`,
+    `you can turn off ads in settings`,
 ];
 
 const paragraph = document.getElementById('dynamicParagraph');
