@@ -1,48 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Home</title>
-    <link rel="icon" href="https://ssl.gstatic.com/classroom/ic_product_classroom_96.png" />
-    <style>
-        /* Background colour */
-        * {
-            background-color: rgb(30, 30, 30);
-        }
-
-        /* Hide scrollbars on body and html */
-        html, body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden; /* This disables scrollbars */
-            height: 100%;
-            width: 100%;
-        }
-
-        /* Center the embed */
-        .swf {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* full viewport height */
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home</title>
+  <link rel="icon" href="https://ssl.gstatic.com/classroom/ic_product_classroom_96.png" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      background-color: rgb(30, 30, 30);
+    }
+    .container {
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+    .content {
+      height: 100%;
+      width: 100%;
+    }
+    .swf-embed {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Embed SWF File using Ruffle -->
-    <script src="https://xxsibxx.github.io/ruffleembedsetup112/ruffle/ruffle.js"></script>
-    <div class="swf" dir="ltr" style="text-align: center;" trbidi="on">
-        <embed 
-            height="720" 
-            pluginspage="http://www.macromedia.com/go/getflashplayer" 
-            src="https://breezly101.github.io/swffiles3/badpiggies.swf" 
-            type="application/x-shockwave-flash" 
-            width="800"
-        >
-        </embed>
+  <div class="container">
+    <div class="content">
+      <!-- Your SWF embed here -->
+      <embed 
+        class="swf-embed"
+        pluginspage="http://www.macromedia.com/go/getflashplayer" 
+        src="https://breezly101.github.io/swffiles3/badpiggies.swf" 
+        type="application/x-shockwave-flash"
+      >
+      </embed>
     </div>
+  </div>
+
+  <!-- Ruffle Flash emulator -->
+  <script src="https://xxsibxx.github.io/ruffleembedsetup112/ruffle/ruffle.js"></script>
 
 </body>
 </html>
