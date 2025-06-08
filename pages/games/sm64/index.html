@@ -29,6 +29,7 @@
       canvas {
         width: 100vw;
         height: 100vh;
+        outline: none; /* Remove focus outline if you want */
       }
       #controls {
         margin-left: 1em;
@@ -42,8 +43,10 @@
   </head>
   <body>
     <div id="container">
+      <!-- Added tabindex="0" to make canvas focusable -->
       <canvas class="emscripten" id="canvas" tabindex="0"></canvas>
     </div>
+
     <script type='text/javascript'>
       var Module = {
         preRun: [],
@@ -73,19 +76,24 @@
         }
       };
     </script>
+
     <script async type="text/javascript" src="sm64.us.f3dex2e.js"></script>
+
     <script>
-      // Ensure the canvas is focused and listens for Enter key
-      window.addEventListener('DOMContentLoaded', () => {
+      // Focus the canvas when the page loads so it receives keyboard input
+      window.addEventListener('load', () => {
         const canvas = document.getElementById('canvas');
         canvas.focus();
 
+        // Optional: refocus canvas on click anywhere in the window
+        window.addEventListener('click', () => {
+          canvas.focus();
+        });
+
+        // Debug: log key presses to console for testing
         canvas.addEventListener('keydown', (event) => {
-          if (event.key === 'Enter') {
-            event.preventDefault();
-            console.log('Enter key pressed!');
-            // If your game needs a start function, call it here.
-            // Example: Module._main(); or canvas.click();
+          if (event.key.toLowerCase() === 'a' || event.key === 'Enter') {
+            console.log(`Key pressed: ${event.key}`);
           }
         });
       });
