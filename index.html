@@ -15,7 +15,7 @@
       gtag('config', 'G-K8CCSDNPV3');
     </script>
     <meta property="og:title" content="Nexus | Home">
-    <meta property="og:description" content="Search the web freely, watch your favorite movies and shows, and play your favorite gаmes with nexus.">
+    <meta property="og:description" content="Search the web freely, watch your favorite movies and shows, and play your favorite gаmes with us4.">
     <meta property="og:image" content="/storage/images/logo.png">
     <meta name="keywords" content="nexus">
     <link rel="manifest" href="manifest.json">
@@ -272,7 +272,7 @@
         </button>
       </div>
       <div class="search-bar-container">
-        <input type="text" id="search-input" value="nexus://new-tab-page" class="search-bar" placeholder="Search or enter a URL">
+        <input type="text" id="search-input" value="us4://new-tab-page" class="search-bar" placeholder="Search or enter a URL">
       </div>
       <div class="navbar-right">
         <button onclick="openInAboutBlank()" class="nav-btn">
@@ -366,38 +366,38 @@
 
       function internal(url) {
         try {
-          if (url.startsWith('nexus://games-frame')) {
-            const path = url.replace('nexus://', '/pages/');
+          if (url.startsWith('us4://games-frame')) {
+            const path = url.replace('us4://', '/pages/');
             return setIframe(path, 'Games');
           }
-          if (url.startsWith('nexus://apps-frame')) {
-            const path = url.replace('nexus://', '/pages/');
+          if (url.startsWith('us4://apps-frame')) {
+            const path = url.replace('us4://', '/pages/');
             return setIframe(path, 'Apps');
           }
           switch (url) {
-            case 'nexus://new-tab-page':
+            case 'us4://new-tab-page':
               return setIframe('/static/?upd=', 'New Tab');
-            case 'nexus://settings':
+            case 'us4://settings':
               return setIframe('/pages/prox/settings?upd=', 'Settings');
-            case 'nexus://games':
+            case 'us4://games':
               return setIframe('/pages/games?upd=', 'Games');
-            case 'nexus://media':
+            case 'us4://media':
               return setIframe('/pages/heartive?upd=', 'Media');
-            case 'nexus://apps':
+            case 'us4://apps':
               return setIframe('/pages/apps?upd=', 'Apps');
-            case 'nexus://partners':
+            case 'us4://partners':
               return setIframe('/pages/partners?upd=', 'Partners');
-            case 'nexus://credits':
+            case 'us4://credits':
               return setIframe('/pages/credits?upd=', 'Credits');
-            case 'nexus://extra':
+            case 'us4://extra':
               return setIframe('/pages/extra?upd=', 'Extra');
-            case 'nexus://data':
+            case 'us4://data':
               return setIframe('/pages/data?upd=', 'Data');
-            case 'nexus://data-usage':
+            case 'us4://data-usage':
               return setIframe('/pages/extra/data-use', 'Data Usage');
-            case 'nexus://secret':
+            case 'us4://secret':
               return setIframe('/pages/super-secret?upd', 'secret');
-            case 'nexus://cheese.png':
+            case 'us4://cheese.png':
               return setIframe('/storage/images/cheese.png', 'cheese');
             default:
               return url;
@@ -497,33 +497,33 @@
           }
           if (docHref.includes("/pages/games-frame") || docHref.includes("/pages/apps-frame")) {
             const remaining = docHref.replace(`https://${hostname}/pages/`, "");
-            return `nexus://${remaining}`;
+            return `us4://${remaining}`;
           }
           switch (docHref) {
             case `https://${hostname}/static/`:
-              return "nexus://new-tab-page";
+              return "us4://new-tab-page";
             case `https://${hostname}/pages/prox/settings`:
-              return "nexus://settings";
+              return "us4://settings";
             case `https://${hostname}/pages/games?upd=`:
-              return "nexus://games";
+              return "us4://games";
             case `https://${hostname}/pages/heartive?upd=`:
-              return "nexus://media";
+              return "us4://media";
             case `https://${hostname}/pages/apps?upd=`:
-              return "nexus://apps";
+              return "us4://apps";
             case `https://${hostname}/pages/partners?upd=`:
-              return "nexus://partners";
+              return "us4://partners";
             case `https://${hostname}/pages/credits?upd=`:
-              return "nexus://credits";
+              return "us4://credits";
             case `https://${hostname}/pages/extra?upd=`:
-              return "nexus://extra";
+              return "us4://extra";
             case `https://${hostname}/pages/data?upd=`:
-              return "nexus://data";
+              return "us4://data";
             case `https://${hostname}/pages/extra/data-use`:
-              return "nexus://data-usage";
+              return "us4://data-usage";
             case `https://${hostname}/pages/super-secret?upd`:
-              return "nexus://secret";
+              return "us4://secret";
             case `https://${hostname}/storage/images/cheese.png`:
-              return "nexus://cheese.png";
+              return "us4://cheese.png";
             default:
               if (docHref.startsWith(hostPrefix)) {
                 return decodeURI(docHref.replace(hostPrefix, ""));
@@ -564,7 +564,7 @@
               try {
                 host = new URL(__uv$config.decodeUrl(path));
               } catch {
-                host = new URL("https://voucan-nexus.github.io");
+                host = new URL("https://voucan-us4.github.io");
               }
               const faviconUrl = `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${host.hostname}&size=24`;
               let title = '';
