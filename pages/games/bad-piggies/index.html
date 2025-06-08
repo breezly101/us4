@@ -1,24 +1,46 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Home</title>
     <link rel="icon" href="https://ssl.gstatic.com/classroom/ic_product_classroom_96.png" />
+    <style>
+        /* Background colour */
+        * {
+            background-color: rgb(30, 30, 30);
+        }
+
+        /* Hide scrollbars on body and html */
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* This disables scrollbars */
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Center the embed */
+        .swf {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* full viewport height */
+        }
+    </style>
 </head>
 <body>
-    <style>
-        * {
-            background-color: black;
-    </style>
 
     <!-- Embed SWF File using Ruffle -->
     <script src="https://xxsibxx.github.io/ruffleembedsetup112/ruffle/ruffle.js"></script>
     <div class="swf" dir="ltr" style="text-align: center;" trbidi="on">
-        <embed height="720" pluginspage="http://www.macromedia.com/go/getflashplayer" 
+        <embed 
+            height="720" 
+            pluginspage="http://www.macromedia.com/go/getflashplayer" 
             src="https://breezly101.github.io/swffiles3/badpiggies.swf" 
-            type="application/x-shockwave-flash" width="1000">
+            type="application/x-shockwave-flash" 
+            width="800"
+        >
         </embed>
     </div>
 
