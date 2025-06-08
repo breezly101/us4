@@ -3,10 +3,10 @@ const Notify = true;
 function createNotification(message) {
     if (!Notify) return;
 
-    //const savedMessage = localStorage.getItem('readMessage');
-    //if (savedMessage === message) return;
+    const savedMessage = localStorage.getItem('readMessage');
+    if (savedMessage === message) return; // Don't show if already shown
 
-    localStorage.setItem('readMessage', message);
+    localStorage.setItem('readMessage', message); // Save that we showed it
 
     const overlay = document.createElement('div');
     overlay.style.position = 'fixed';
@@ -75,5 +75,6 @@ function createNotification(message) {
 }
 
 window.onload = () => {
-    createNotification('US5 will be releasing in the 2025-2026 school year. Join our discord for updates on US5: https://discord.gg/VDA8Ngx38Z');
+    const message = 'US5 will be releasing in the 2025-2026 school year. Join our discord for updates on US5: https://discord.gg/VDA8Ngx38Z';
+    createNotification(message);
 };
