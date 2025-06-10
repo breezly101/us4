@@ -24,7 +24,7 @@ const phrases = [
     `index.html`,
     `fortnite is cringe`,
     `help`,
-    `discord when`,
+    `ts is so mid 🥀😭`,
     `sleep is for the weak 🥀`,
     `i forgot to mute`,
     `someone stole my mouse`,
