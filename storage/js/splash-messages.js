@@ -5,7 +5,8 @@ const phrases = [
     `im going to put bleach in your eyes`,
     `im in your walls`,
     /*{ other: 'loop', width: '200px', type: "video", src: `https://media.tenor.com/SIpmtvnEsDIAAAPo/rotating-chips.mp4` },*/
-    { type: "image", width: '45%', src: `/storage/images/splash1.png` },
+    { type: "image", width: '100%', src: `/storage/images/splash1.png` },
+    { type: "image", width: '45%', src: `/storage/images/splash2.png` },
     /*{ type: "image", width: '400px', src: `https://c.tenor.com/9MVlipGuNioAAAAC/tenor.gif` },*/
     `i accidentally muted the teacher`,
     `my homework ate my dog`,
