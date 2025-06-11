@@ -24,7 +24,7 @@ const phrases = [
     `index.html`,
     `fortnite is cringe`,
     `help`,
-    `ts is so tuff 🥀😭`,
+    `ts not tuff 🥀😭`,
     `sleep is for the weak 🥀`,
     `i forgot to mute`,
     `someone stole my mouse`,
@@ -37,6 +37,8 @@ const phrases = [
     `deployed on netlify`,
     `can someone help me find a bare`,
     `splash-messages.js`,
+    `static proxy 😱 those who know 💀`,
+    `who votes yt should be unblocked`,
 ];
 
 const paragraph = document.getElementById('dynamicParagraph');
