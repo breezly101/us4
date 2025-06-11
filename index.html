@@ -387,7 +387,7 @@
             case 'nexus://data-usage':
               return setIframe('/pages/extra/data-use', 'Data Usage');
             case 'nexus://secret':
-              return setIframe('/pages/secret', 'Data Usage');
+              return setIframe('/pages/secret', 'super-secret');
           }
         } catch (e) {
           console.error('internal page failed:', e);
@@ -508,6 +508,7 @@
             case `https://${hostname}/pages/extra/data-use`:
               return "nexus://data-usage";
             case `https://${hostname}/pages/secret`:
+            case `https://${hostname}/pages/secret/`:
               return "nexus://secret";
             case `https://${hostname}/storage/images/cheese.png`:
               return "nexus://cheese.png";
