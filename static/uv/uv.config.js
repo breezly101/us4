@@ -2,7 +2,7 @@
 
 self.__uv$config = {
     prefix: '/static/load/',
-    bare:'https://historicalfiction.vpn.net.br/bare/',
+    bare:'https://gointerstellar.app/outerspace/',
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
     handler: '/static/uv/uv.handler.js',
@@ -15,5 +15,5 @@ self.__uv$config = {
 
 // https://frog.tracbras.com.br/bare/
 // https://introducing.wine-software.com/bare/
-// https://historicalfiction.vpn.net.br/bare/
+// https://historicalfiction.vpn.net.br/bare/ - slow
 // https://web.cloudflared.cf/
