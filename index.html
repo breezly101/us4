@@ -398,34 +398,46 @@
         }
       }
 
-      function search() {
-        const inputRaw = document.getElementById('search-input').value.trim();
-        const iframe = document.querySelector('.tab-iframe.active');
-        if (!inputRaw || !iframe) return;
-        const mapped = internal(inputRaw);
-        if (typeof mapped === 'function') {
-          mapped();
-        } else {
-          const isInternal = mapped === '/static/' || mapped === '/pages/prox/settings';
-          let finalURL = mapped;
-          if (!isInternal) {
-            const hasProtocol = /^https?:\/\//i.test(mapped);
-            const looksLikeURL = /\.[a-z]{2,}(\/|$)/i.test(mapped);
-            if (hasProtocol) {
-              finalURL = mapped;
-            } else if (looksLikeURL) {
-              finalURL = 'http://' + mapped;
-            } else {
-              finalURL = `https://duckduckgo.com/?q=${encodeURIComponent(mapped)}`;
-            }
-          }
-          iframe.src = isInternal ? mapped : `/static/embed?p=${finalURL}`;
-          iframe.onload = () => {
-            updateSearchBar(iframe);
-            updateTabName(iframe);
-          };
-        }
+function search() {
+  const inputRaw = document.getElementById('search-input').value.trim();
+  const iframe = document.querySelector('.tab-iframe.active');
+  if (!inputRaw || !iframe) return;
+
+  const mapped = internal(inputRaw);
+
+  if (typeof mapped === 'function') {
+    mapped();
+  } else if (typeof mapped === 'string') {
+    const isInternal = mapped === '/static/' || mapped === '/pages/prox/settings';
+    let finalURL = mapped;
+    const hasProtocol = /^https?:\/\//i.test(mapped);
+    const looksLikeURL = /\.[a-z]{2,}(\/|$)/i.test(mapped);
+
+    if (!isInternal) {
+      if (hasProtocol) {
+        finalURL = mapped;
+      } else if (looksLikeURL) {
+        finalURL = 'http://' + mapped;
+      } else {
+        finalURL = `https://duckduckgo.com/?q=${encodeURIComponent(mapped)}`;
       }
+    }
+
+    iframe.src = isInternal ? mapped : `/static/embed?p=${finalURL}`;
+    iframe.onload = () => {
+      updateSearchBar(iframe);
+      updateTabName(iframe);
+    };
+  } else {
+    // Fallback to DuckDuckGo if internal() returns undefined or anything unexpected
+    const fallbackSearch = `https://duckduckgo.com/?q=${encodeURIComponent(inputRaw)}`;
+    iframe.src = `/static/embed?p=${fallbackSearch}`;
+    iframe.onload = () => {
+      updateSearchBar(iframe);
+      updateTabName(iframe);
+    };
+  }
+}
 
       function settings() {
         tabCount++;
