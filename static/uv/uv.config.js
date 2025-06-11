@@ -15,4 +15,4 @@ self.__uv$config = {
 
 // https://frog.tracbras.com.br/bare/
 // https://historicalfiction.vpn.net.br/bare/ - slow
-// https://web.cloudflared.cf/
+// https://web.cloudflared.cf/ - fastest
