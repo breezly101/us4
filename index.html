@@ -387,8 +387,7 @@
             case 'nexus://data-usage':
               return setIframe('/pages/extra/data-use', 'Data Usage');
             case 'nexus://secret':
-               window.location.href = '/pages/secret';
-               return;
+              return setIframe('/pages/secret/super-secret.html', 'Data Usage');
           }
         } catch (e) {
           console.error('internal page failed:', e);
