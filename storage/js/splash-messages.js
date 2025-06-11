@@ -24,16 +24,19 @@ const phrases = [
     `index.html`,
     `fortnite is cringe`,
     `help`,
-    `ts is so mid 🥀😭`,
+    `ts is so tuff 🥀😭`,
     `sleep is for the weak 🥀`,
     `i forgot to mute`,
     `someone stole my mouse`,
     `why is the fan so loud`,
     `chromebooks suck`,
+    `do not replace nexus://new-tab-page with nexus://secret 🤫`,
     `this is definitely schoolwork`,
     `school says no fun`,
     `how many times have u clicked it`,
-    `you can turn off ads in settings`,
+    `deployed on netlify`,
+    `can someone help me find a bare`,
+    `splash-messages.js`,
 ];
 
 const paragraph = document.getElementById('dynamicParagraph');
