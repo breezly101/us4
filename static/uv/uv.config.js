@@ -1,6 +1,6 @@
 self.__uv$config = {
     prefix: '/static/load/',
-    bare:'https://vplaza.org/bare/',
+    bare:'https://web.cloudflared.cf/',
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
     handler: '/static/uv/uv.handler.js',
@@ -11,7 +11,7 @@ self.__uv$config = {
 
 // Alternate Bares (use if not working)
 
-// https://frog.tracbras.com.br/bare/
+// https://frog.tracbras.com.br/bare/ - not working
 // https://historicalfiction.vpn.net.br/bare/ - slow
 // https://web.cloudflared.cf/ - fastest but search always undefinied
 // https://vplaza.org/bare/ - fast
