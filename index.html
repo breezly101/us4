@@ -365,10 +365,9 @@
             const path = url.replace('nexus://', '/pages/');
             return setIframe(path, 'Apps');
           }
-          if (url.startsWith('nexus://secret')) {
-            const path = url.replace('nexus://', '/pages/');
-            return setIframe(path, 'super-secret');
-          }
+          if (url === 'nexus://secret') {
+            return setIframe('/pages/secret', 'super-secret');
+         }
           switch (url) {
             case 'nexus://new-tab-page':
               return setIframe('/static/?upd=', 'New Tab');
