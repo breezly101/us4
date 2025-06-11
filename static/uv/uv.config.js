@@ -13,3 +13,4 @@ self.__uv$config = {
 // https://frog.tracbras.com.br/bare/
 // https://introducing.wine-software.com/bare/
 // https://historicalfiction.vpn.net.br/bare/
+// https://web.cloudflared.cf/
