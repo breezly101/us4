@@ -397,32 +397,35 @@
           return url;
         }
       }
-
-function search() {
+	    
+    function search() {
   const inputRaw = document.getElementById('search-input').value.trim();
   const iframe = document.querySelector('.tab-iframe.active');
   if (!inputRaw || !iframe) return;
 
-  const mapped = internal(inputRaw);
+  // Check if the input is a valid full URL
+  const hasProtocol = /^https?:\/\//i.test(inputRaw);
+  const looksLikeURL = /\.[a-z]{2,}(\/|$)/i.test(inputRaw);
+  let finalURL;
 
-  if (typeof mapped === 'function') {
-    mapped();
-  } else if (typeof mapped === 'string') {
-    const isInternal = mapped === '/static/' || mapped === '/pages/prox/settings';
-    let finalURL = mapped;
-    const hasProtocol = /^https?:\/\//i.test(mapped);
-    const looksLikeURL = /\.[a-z]{2,}(\/|$)/i.test(mapped);
+  if (hasProtocol) {
+    finalURL = inputRaw; // Already a full URL
+  } else if (looksLikeURL) {
+    finalURL = 'http://' + inputRaw; // Likely a domain without protocol
+  } else {
+    // If it's a search query, use DuckDuckGo
+    finalURL = `https://duckduckgo.com/?q=${encodeURIComponent(inputRaw)}`;
+  }
 
-    if (!isInternal) {
-      if (hasProtocol) {
-        finalURL = mapped;
-      } else if (looksLikeURL) {
-        finalURL = 'http://' + mapped;
-      } else {
-        finalURL = `https://duckduckgo.com/?q=${encodeURIComponent(mapped)}`;
-      }
-    }
+  // Load it through Ultraviolet proxy
+  iframe.src = `/static/embed?p=${finalURL}`;
+  iframe.onload = () => {
+    updateSearchBar(iframe);
+    updateTabName(iframe);
+  };
+}
 
+	    
     iframe.src = isInternal ? mapped : `/static/embed?p=${finalURL}`;
     iframe.onload = () => {
       updateSearchBar(iframe);
