@@ -398,40 +398,34 @@
         }
       }
 
-     function search() {
-  const inputRaw = document.getElementById('search-input').value.trim();
-  const iframe = document.querySelector('.tab-iframe.active');
-  if (!inputRaw || !iframe) return;
-
-  const mapped = internal(inputRaw);
-  if (typeof mapped === 'function') {
-    mapped();
-  } else {
-    const isInternal = mapped === '/static/' || mapped === '/pages/prox/settings';
-    let finalURL = mapped;
-
-    if (!isInternal) {
-      const hasProtocol = /^https?:\/\//i.test(mapped);
-      const looksLikeURL = /\.[a-z]{2,}(\/|$)/i.test(mapped);
-
-      if (hasProtocol) {
-        finalURL = mapped;
-      } else if (looksLikeURL) {
-        // Use HTTPS instead of HTTP
-        finalURL = 'https://' + mapped;
-      } else {
-        finalURL = `https://duckduckgo.com/?q=${encodeURIComponent(mapped)}`;
+      function search() {
+        const inputRaw = document.getElementById('search-input').value.trim();
+        const iframe = document.querySelector('.tab-iframe.active');
+        if (!inputRaw || !iframe) return;
+        const mapped = internal(inputRaw);
+        if (typeof mapped === 'function') {
+          mapped();
+        } else {
+          const isInternal = mapped === '/static/' || mapped === '/pages/prox/settings';
+          let finalURL = mapped;
+          if (!isInternal) {
+            const hasProtocol = /^https?:\/\//i.test(mapped);
+            const looksLikeURL = /\.[a-z]{2,}(\/|$)/i.test(mapped);
+            if (hasProtocol) {
+              finalURL = mapped;
+            } else if (looksLikeURL) {
+              finalURL = 'https://' + mapped;
+            } else {
+              finalURL = `https://duckduckgo.com/?q=${encodeURIComponent(mapped)}`;
+            }
+          }
+          iframe.src = isInternal ? mapped : `/static/embed?p=${finalURL}`;
+          iframe.onload = () => {
+            updateSearchBar(iframe);
+            updateTabName(iframe);
+          };
+        }
       }
-    }
-
-    iframe.src = isInternal ? mapped : `/static/embed?p=${encodeURIComponent(finalURL)}`;
-    iframe.onload = () => {
-      updateSearchBar(iframe);
-      updateTabName(iframe);
-    };
-  }
-}
-
 
       function settings() {
         tabCount++;
