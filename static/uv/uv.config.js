@@ -1,6 +1,8 @@
+// UV bares take if u want
+
 self.__uv$config = {
     prefix: '/static/load/',
-    bare:'https://frog.vpn.net.br/bare/',
+    bare:'https://historicalfiction.vpn.net.br/bare/',
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
     handler: '/static/uv/uv.handler.js',
@@ -10,6 +12,7 @@ self.__uv$config = {
 }
 
 // Alternate Bares (use if not working)
+
 // https://frog.tracbras.com.br/bare/
 // https://introducing.wine-software.com/bare/
 // https://historicalfiction.vpn.net.br/bare/
