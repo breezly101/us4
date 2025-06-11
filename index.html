@@ -414,7 +414,7 @@
             if (hasProtocol) {
               finalURL = mapped;
             } else if (looksLikeURL) {
-              finalURL = 'https://' + mapped;
+              finalURL = 'http://' + mapped;
             } else {
               finalURL = `https://duckduckgo.com/?q=${encodeURIComponent(mapped)}`;
             }
