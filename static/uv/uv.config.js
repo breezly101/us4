@@ -1,6 +1,6 @@
 self.__uv$config = {
     prefix: '/static/load/',
-    bare:'https://web.cloudflared.cf/',
+    bare:'https://muddy-rice-ba72.acsessremote.workers.dev/',
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
     handler: '/static/uv/uv.handler.js',
@@ -16,3 +16,4 @@ self.__uv$config = {
 // https://web.cloudflared.cf/ - fastest but search always undefinied
 // https://vplaza.org/bare/ - fast
 // https://v2202412246404304352.megasrv.de/bare/
+// https://muddy-rice-ba72.acsessremote.workers.dev/
