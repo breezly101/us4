@@ -19,4 +19,7 @@ self.__uv$config = {
 // https://muddy-rice-ba72.acsessremote.workers.dev/
 
 // Blocked Websites
-// Adding later
+blacklist: [
+  'xvideos.com',
+  'ome.tv'
+],
