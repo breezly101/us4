@@ -123,8 +123,10 @@ const blocked = [
 
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
+  console.log('Fetching:', url.href);
 
-  if (blocked.some(domain => url.hostname.includes(domain))) {
+  if (blocked.some(domain => url.hostname === domain || url.hostname.endsWith('.' + domain))) {
+    console.log('Blocked domain detected:', url.hostname);
     event.respondWith(
       Response.redirect('/pages/blocked.html', 302)
     );
