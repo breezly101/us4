@@ -123,12 +123,25 @@ const blocked = [
 
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
-  console.log('Fetching:', url.href);
 
-  if (blocked.some(domain => url.hostname === domain || url.hostname.endsWith('.' + domain))) {
-    console.log('Blocked domain detected:', url.hostname);
-    event.respondWith(
-      Response.redirect('/pages/blocked.html', 302)
+  // Only intercept navigation requests (page loads)
+  if (event.request.mode === 'navigate') {
+    // Check if hostname matches or ends with blocked domain
+    const isBlocked = blocked.some(domain => 
+      url.hostname === domain || url.hostname.endsWith('.' + domain)
     );
+
+    if (isBlocked) {
+      console.log(`Blocked navigation to: ${url.hostname}`);
+
+      // Redirect to the blocked page
+      event.respondWith(
+        Response.redirect('/pages/blocked.html', 302)
+      );
+      return;
+    }
   }
+
+  // For all other requests, let them pass through
+  event.respondWith(fetch(event.request));
 });
