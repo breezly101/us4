@@ -1,30 +1,41 @@
 const blockedSites = [
-  "example.com"
+  "example.com",
+  "discord.com",
+  "tiktok.com"
 ];
 
+// This function checks if the hostname of the given URL matches any blocked domain
 function isBlocked(url) {
   try {
     const parsed = new URL(url);
-    return blockedSites.some(site => parsed.hostname.includes(site));
+    return blockedSites.some(site => parsed.hostname.toLowerCase().includes(site.toLowerCase()));
   } catch {
-    return true;
+    return true; // If it's an invalid URL, treat as blocked (optional)
   }
 }
 
 function searchAndGo() {
   const input = document.getElementById("searchInput");
   const query = input.value.trim();
-
   if (!query) return;
 
-  // Automatically prepend https:// if missing
-  const url = query.startsWith("http") ? query : "https://" + query;
+  let url;
+  // Try turning query into a real URL
+  try {
+    url = new URL(query.startsWith("http") ? query : "https://" + query);
+  } catch (e) {
+    // If it's not a valid URL, treat as search
+    const searchEngine = "https://www.google.com/search?q=";
+    url = new URL(searchEngine + encodeURIComponent(query));
+  }
 
-  if (isBlocked(url)) {
+  // Now check if the final URL is blocked
+  if (isBlocked(url.href)) {
     alert("This website is blocked.");
     return;
   }
 
-  const encoded = self.__uv$config.prefix + self.__uv$config.encodeUrl(url);
+  // Encode the final resolved URL with UV
+  const encoded = self.__uv$config.prefix + self.__uv$config.encodeUrl(url.href);
   window.location.href = encoded;
 }
