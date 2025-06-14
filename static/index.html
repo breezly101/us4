@@ -1,124 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>New Tab</title>
-  <link rel="stylesheet" href="../storage/css/evenmorestyles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link rel="stylesheet" href="../storage/css/static.css" />
-</head>
-<body>
-  <script src="/particles.js"></script>
-  <script src="/app.js"></script>
 
-  <div id="particles-js"></div>
-  <h1>NEXUS</h1>
-  <p id="dynamicParagraph">(TEXT)</p>
+<html>
+  <head>
 
-  <div id="search-container">
-    <form id="uv-form">
-      <input id="uv-search-engine" value="https://duckduckgo.com/?q=%s" type="hidden" />
-      <input id="uv-address" type="text" class="search-bar-home" placeholder="Search or enter a URL" />
-      <button id="search-button" type="submit">
-        SEARCH <i class="fa-solid fa-magnifying-glass"></i>
-      </button>
-    </form>
-    <div class="desc left-margin">
-      <p id="uv-error"></p>
-      <pre id="uv-error-code"></pre>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Tab</title>
+    <link rel="stylesheet" href="../storage/css/evenmorestyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../storage/css/static.css">
+  </head>
+  <body>
+    <script src="/particles.js"></script>
+    <script src="/app.js"></script>
+    <div id="particles-js"></div>
+    <h1>NEXUS</h1>
+    <p id="dynamicParagraph">(TEXT)</p>
+    <div id="search-container">
+      <form id="uv-form">
+        <input id="uv-search-engine" value="https://duckduckgo.com/?q=%s" type="hidden" />
+        <input id="uv-address" type="text" class="search-bar-home" placeholder="Search or enter a URL" />
+        <button id="search-button" onclick="search()">SEARCH <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+      <div class="desc left-margin">
+        <p id="uv-error"></p>
+        <pre id="uv-error-code"></pre>
+      </div>
     </div>
-  </div>
+    <script src="/static/uv/uv.bundle.js" defer></script>
+    <script src="/static/uv/uv.config.js" defer></script>
+    <script src="/static/register-sw.js" defer></script>
+    <script type="text/javascript" src="/storage/js/background.js"></script>
+    <script src="/storage/js/splash-messages.js"></script>
+    <script>
+      document.getElementById('uv-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        search();
+      });
 
-  <!-- Optional: quick search buttons -->
-  <div id="random-search-terms" style="margin-top: 15px;">
-    <p>Try a search:</p>
-    <button type="button" onclick="setAndSearch('cats')">cats</button>
-    <button type="button" onclick="setAndSearch('space')">space</button>
-    <button type="button" onclick="setAndSearch('history')">history</button>
-  </div>
-
-  <script src="/static/search.js" defer></script>
-  <script src="/static/uv/uv.bundle.js" defer></script>
-  <script src="/static/uv/uv.config.js" defer></script>
-  <script src="/static/register-sw.js" defer></script>
-  <script type="text/javascript" src="/storage/js/background.js"></script>
-  <script src="/storage/js/splash-messages.js"></script>
-
-  <script>
-    // Prevent default form submit and call custom search()
-    document.getElementById('uv-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      search();
-    });
-
-    // Function to fill search box and search
-    function setAndSearch(term) {
-      document.getElementById('uv-address').value = term;
-      search();
-    }
-
-    function search() {
-      let inputRaw = document.getElementById('uv-address').value.trim().toLowerCase();
-      if (!inputRaw) return;
-
-      // Blocked search terms
-      const blockedTerms = ['cats', 'foo', 'bar'];
-
-      // Blocked URLs
-      const blockedURLs = ['example.com', 'blockedsite.net', 'malicious.org'];
-
-      // Redirect if blocked term is searched exactly
-      if (blockedTerms.includes(inputRaw)) {
-        window.location.href = '/pages/blocked.html';
-        return;
+      function search() {
+        const inputRaw = document.getElementById('uv-address').value.trim();
+        if (!inputRaw) return;
+        const hasProtocol = /^https?:\/\//i.test(inputRaw);
+        const looksLikeURL = /\.[a-z]{2,}(\/|$)/i.test(inputRaw);
+        let finalURL;
+        if (hasProtocol) {
+          finalURL = inputRaw;
+        } else if (looksLikeURL) {
+          finalURL = 'http://' + inputRaw;
+        } else {
+          const searchEngine = document.getElementById('uv-search-engine').value;
+          finalURL = searchEngine.replace('%s', encodeURIComponent(inputRaw));
+        }
+        window.location.href = `/static/embed?p=${finalURL}`;
       }
-
-      // Normalize input for URL check (remove protocol)
-      let normalizedInput = inputRaw.replace(/^https?:\/\//, '');
-
-      // Redirect if input contains any blocked URL
-      if (blockedURLs.some(url => normalizedInput.includes(url))) {
-        window.location.href = '/pages/blocked.html';
-        return;
+    </script>
+    <script>
+      async function regsw() {
+        await navigator.serviceWorker.register("/static/uv-sw.js", {
+          scope: "/static/",
+        });
       }
-
-      // Existing search or URL navigation logic
-      const hasProtocol = /^https?:\/\//i.test(inputRaw);
-      const looksLikeURL = /\.[a-z]{2,}(\/|$)/i.test(inputRaw);
-      let finalURL;
-
-      if (hasProtocol) {
-        finalURL = inputRaw;
-      } else if (looksLikeURL) {
-        finalURL = 'http://' + inputRaw;
-      } else {
-        const searchEngine = document.getElementById('uv-search-engine').value;
-        finalURL = searchEngine.replace('%s', encodeURIComponent(inputRaw));
-      }
-
-      window.location.href = `/static/embed?p=${finalURL}`;
-    }
-
-    async function regsw() {
-      await navigator.serviceWorker.register("/static/uv-sw.js", { scope: "/static/" });
-    }
-    regsw();
-
-    // Konami code redirect (optional)
-    const code = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a', 'Enter'];
-    let currentKeyIndex = 0;
-    document.addEventListener('keydown', (event) => {
-      if (event.key === code[currentKeyIndex]) {
-        currentKeyIndex++;
-        if (currentKeyIndex === code.length) {
-          window.location.href = "/pages/secret/index.html";
+      regsw();
+    </script>
+    <script>
+      const code = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a', 'Enter'];
+      let currentKeyIndex = 0;
+      document.addEventListener('keydown', (event) => {
+        if (event.key === code[currentKeyIndex]) {
+          currentKeyIndex++;
+          if (currentKeyIndex === code.length) {
+            window.location.href = "/pages/secret/index.html"
+            currentKeyIndex = 0;
+          }
+        } else {
           currentKeyIndex = 0;
         }
-      } else {
-        currentKeyIndex = 0;
-      }
-    });
-  </script>
-</body>
+      });
+    </script>
+  </body>
 </html>
