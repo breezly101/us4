@@ -38,22 +38,42 @@
         search();
       });
 
-      function search() {
-        const inputRaw = document.getElementById('uv-address').value.trim();
-        if (!inputRaw) return;
-        const hasProtocol = /^https?:\/\//i.test(inputRaw);
-        const looksLikeURL = /\.[a-z]{2,}(\/|$)/i.test(inputRaw);
-        let finalURL;
-        if (hasProtocol) {
-          finalURL = inputRaw;
-        } else if (looksLikeURL) {
-          finalURL = 'http://' + inputRaw;
-        } else {
-          const searchEngine = document.getElementById('uv-search-engine').value;
-          finalURL = searchEngine.replace('%s', encodeURIComponent(inputRaw));
-        }
-        window.location.href = `/static/embed?p=${finalURL}`;
-      }
+     function search() {
+          const inputRaw = document.getElementById('uv-address').value.trim();
+          if (!inputRaw) return;
+
+          // List of blocked search terms or domains (lowercase)
+          const blockedTerms = [
+               'cates',
+               'example.com',
+               'cats'
+          ];
+
+          const lowerInput = inputRaw.toLowerCase();
+
+          // Check if input contains any blocked term
+          for (const term of blockedTerms) {
+               if (lowerInput.includes(term)) {
+                    window.location.href = '/pages/blocked.html';
+                    return;
+               }
+          }
+
+          const hasProtocol = /^https?:\/\//i.test(inputRaw);
+          const looksLikeURL = /\.[a-z]{2,}(\/|$)/i.test(inputRaw);
+          let finalURL;
+
+          if (hasProtocol) {
+               finalURL = inputRaw;
+          } else if (looksLikeURL) {
+               finalURL = 'http://' + inputRaw;
+          } else {
+               const searchEngine = document.getElementById('uv-search-engine').value;
+               finalURL = searchEngine.replace('%s', encodeURIComponent(inputRaw));
+          }
+
+          window.location.href = `/static/embed?p=${finalURL}`;
+     }
     </script>
     <script>
       async function regsw() {
