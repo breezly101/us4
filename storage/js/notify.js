@@ -44,7 +44,7 @@ function createNotification(message) {
     notification.appendChild(header);
 
     const messageSpan = document.createElement('div');
-    messageSpan.textContent = message;
+    messageSpan.innerHTML = message;  // <-- Use innerHTML here for clickable link!
     messageSpan.style.marginBottom = '20px';
     notification.appendChild(messageSpan);
 
