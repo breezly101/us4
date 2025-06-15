@@ -75,6 +75,6 @@ function createNotification(message) {
 }
 
 window.onload = () => {
-    const message = 'US5 will be releasing in the 2025-2026 school year. Join our discord for updates on US5: https://discord.gg/VDA8Ngx38Z';
+    const message = `Nexus V3 will be releasing in the 2025-2026 school year. Visit our old site here: <a href="https://breezly101.github.io/nexus" target="_blank" style="color: blue; text-decoration: underline;">https://breezly101.github.io/nexus</a>`;
     createNotification(message);
 };
