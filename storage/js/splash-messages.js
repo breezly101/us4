@@ -42,6 +42,66 @@ const phrases = [
     `splash-messages.js`,
     `static proxy 😱 those who know 💀`,
     `who votes yt should be unblocked`,
+    `who can help me code`,
+    `sub teacher today yay`,
+    `math test tomorrow`,
+    `the bell just rang`,
+    `calculator? more like calc-you-later! 🥀 (i didnt make this one)`,
+    `forgot my pe clothes, again.`,
+    `C1?`,
+    `anyone up for basketball after school?`,
+    `i dont like sitting near the window during class`,
+    `💀`,
+    `ts ste lwk pmo ngl lke icl ts ste is so bns ddss nt gnna us ts 🥀`,
+    `:D`,
+    `best static website for the unemployed`,
+    `nexusv2.netlify.app ay 🗣️🗣️🔥🔥`,
+    `ヽ༼ ಠ益ಠ ༽ﾉ`,
+    `i swear I'm paying attention`,
+    `am i not the only one with 481178:44:26 hours on minecraft`,
+    `i saw you got a 6 on your last test 💀`,
+    `mom`,
+    `(╯°□°)╯︵ ┻━┻`,
+    `hehe`,
+    `stop asking for red dead to me and maybe i'll think abt it 🥀`,
+    `hey all nexus users`,
+    `https://youtube.com/watch?v=dQw4w9WgXcQ`,
+    `whoa is this a splash text`,
+    `ur ip: {ip} dont believe me, hit ctrl + shift + i and click on console`
+    `teacher gave us too much homework 😭`,
+    `downloading your passwords...`,
+    `the wifi went out... again 💀`,
+    `😉`,
+    `hello`,
+    `NUKE INCOMING!`,
+    `i spent way too much time making these`,
+    `bottom text`,
+    `w h a t`,
+    `my phone passcode is 563543 btw`,
+    `reload the page NOW!`,
+    `beep boop! are you a robot?`,
+    `stop skidding my website 😭`,
+    `oh the weather outside is rizzy, and the fire is so skibidi, and since ive gyatt to go, ohio ohio ohio`,
+    `oh the weather outside is rizzy`,
+    `i forgor`,
+    `school uses blocker *inefective*`,
+    `snuck a snack into class 😎`,
+    `no phones during school hour`,
+    `why did you ask me to add bitlife 😭`,
+    `:0`,
+    `Roblox? Cringe!`,
+    `i wanted free vbucks :(`,
+    `what the dog doin?`,
+    `powered by 20 Gigs of RAM!`,
+    `Avocados \ud83e\udd51 from Mexico \ud83c\uddf2\ud83c\uddfd`,
+    `if you are using Microsoft Edge, you need some help.`,
+    `made in the uk`,
+    `better than tortilla games`,
+    `#Relatable`,
+    `redbull gives u wings`,
+    `as seen on tv!`,
+    `how many sides does a circle have? (ans 3 🤫)`,
+    `you can read btw`,
 ];
 
 const paragraph = document.getElementById('dynamicParagraph');
@@ -62,3 +122,24 @@ function changeText() {
 
 paragraph.addEventListener('click', changeText);
 window.onload = changeText;
+console.log("IPv4 fetched from origin");
+
+window.onload = async () => {
+  try {
+    const res = await fetch('https://api.ipify.org?format=json');
+    const data = await res.json();
+
+    if (data.ip) {
+      // Replace {ip} with actual IP in all phrases that contain it
+      for (let i = 0; i < phrases.length; i++) {
+        if (phrases[i].includes("{ip}")) {
+          phrases[i] = phrases[i].replace("{ip}", data.ip);
+        }
+      }
+    }
+  } catch (e) {
+    console.error("Failed to get IP", e);
+  }
+
+  changeText();
+};
