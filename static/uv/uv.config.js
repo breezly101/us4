@@ -1,6 +1,6 @@
 self.__uv$config = {
     prefix: '/static/load/',
-    bare:'https://v2202412246404304352.megasrv.de/bare/',
+    bare:'https://vplaza.org/bare/',
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
     handler: '/static/uv/uv.handler.js',
@@ -15,7 +15,7 @@ self.__uv$config = {
 // https://historicalfiction.vpn.net.br/bare/ - slow
 // https://web.cloudflared.cf/ - not working atm
 // https://vplaza.org/bare/ - fast
-// https://v2202412246404304352.megasrv.de/bare/
+// https://v2202412246404304352.megasrv.de/bare/ - mid
 // https://muddy-rice-ba72.acsessremote.workers.dev/
 
 // Blocked Websites
