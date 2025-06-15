@@ -13,6 +13,7 @@ const phrases = [
     `my homework ate my dog`,
     `late to class again`,
     `now with MORE html`,
+    `you can click me you know`,
     `omg i better not get iss for this 😭`,
     `made at school`,
     `made with javascript`,
