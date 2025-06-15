@@ -142,6 +142,7 @@ const phrases = [
     `skibid`,
     `n e x u s`,
     `hear me out: css 🤫`,
+    `1 vCPU, 4 GB RAM, 20 GB Storage`,
 ];
 
 const paragraph = document.getElementById('dynamicParagraph');
