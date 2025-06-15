@@ -1,28 +1,31 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="icon" href="https://raw.githubusercontent.com/voucan/voucan.github.io/refs/heads/main/googleclassroom.png" type="image/png">
-    <link rel="stylesheet" href="/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="/storage/css/embed-frame.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/voucan/voucan.github.io/refs/heads/main/googleclassroom.png" type="image/png">
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+  <link href="/storage/css/embed-frame.css" rel="stylesheet" />
 </head>
-<body scroll="no" style="overflow: hidden">
-        <iframe src="https://heartive-us4.pages.dev/"></iframe>
+<body style="overflow: hidden; margin: 0;">
+  <iframe 
+    src="https://heartive-us4.pages.dev/" 
+    style="border: none; width: 100vw; height: 100vh;" 
+    allow="fullscreen" 
+    allowfullscreen>
+  </iframe>
 
-    <script type="text/javascript" src="/storage/js/settings-1.js"></script>
+  <script src="/storage/js/settings-1.js"></script>
 
-<script>
-  const urlParams = new URLSearchParams(window.location.search);
-  const updParam = urlParams.get('upd');
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const updParam = urlParams.get('upd');
 
-  if (updParam === null) {
-    window.location.href = '/';
-  }
-</script>
-
+    if (updParam === null && window.location.pathname !== "/") {
+      window.location.href = '/';
+    }
+  </script>
 </body>
 </html>
