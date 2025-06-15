@@ -44,7 +44,7 @@ function createNotification(message) {
     notification.appendChild(header);
 
     const messageSpan = document.createElement('div');
-    messageSpan.innerHTML = message;  // <-- Use innerHTML here for clickable link!
+    messageSpan.textContent = message;
     messageSpan.style.marginBottom = '20px';
     notification.appendChild(messageSpan);
 
@@ -75,6 +75,6 @@ function createNotification(message) {
 }
 
 window.onload = () => {
-    const message = `Nexus V3 will be releasing in the 2025-2026 school year. Visit our old site here: <a href="https://breezly101.github.io/nexus" target="_blank" style="color: blue; text-decoration: underline;">https://breezly101.github.io/nexus</a>`;
+    const message = `Nexus V3 will be releasing in the 2025-2026 school year. Visit our old site here: "https://breezly101.github.io/nexus"`;
     createNotification(message);
 };
