@@ -140,6 +140,8 @@ const phrases = [
     `📵 definitely not off-task`,
     `html is my coping mechanism`,
     `👻 ghost tab`,
+    `skibid`,
+    `n e x u s`,
 ];
 
 const paragraph = document.getElementById('dynamicParagraph');
