@@ -8,6 +8,7 @@ const phrases = [
     { type: "image", width: '100%', src: `/storage/images/splash1.png` },
     { type: "image", width: '45%', src: `/storage/images/splash2.png` },
     { type: "image", width: '35%', src: `/storage/images/splash3.png` },
+    { type: "image", width: '35%', src: `/storage/images/splash4.gif` },
     /*{ type: "image", width: '400px', src: `https://c.tenor.com/9MVlipGuNioAAAAC/tenor.gif` },*/
     `i accidentally muted the teacher`,
     `my homework ate my dog`,
