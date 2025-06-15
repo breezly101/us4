@@ -107,8 +107,7 @@ const phrases = [
 const paragraph = document.getElementById('dynamicParagraph');
 paragraph.style.userSelect = 'none';
 
-function changeText() {
-    const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+let userIP = null;
 
 function changeText() {
   let randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
@@ -126,8 +125,6 @@ function changeText() {
   }
 }
 
-let userIP = null;
-
 window.onload = async () => {
   try {
     const res = await fetch('https://api.ipify.org?format=json');
@@ -139,3 +136,5 @@ window.onload = async () => {
   }
   changeText();
 };
+
+paragraph.addEventListener('click', changeText);
