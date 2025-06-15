@@ -18,7 +18,7 @@ const phrases = [
     `made at school`,
     `made with javascript`,
     `thanks voucan`,
-    `press ctrl+shift+q+q for free money`,
+    `press ctrl+shift+q+q for hidden game`,
     `school. is. bad`,
     `school lunch is mid`,
     `i dare you to rub a magnet on the side of your chromebook`,
@@ -85,14 +85,14 @@ const phrases = [
     `oh the weather outside is rizzy`,
     `i forgor`,
     `school uses blocker *inefective*`,
-    `snuck a snack into class 😎`,
+    `snuck a snack into class 😎 (tuff?)`,
     `no phones during school hour`,
     `why did you ask me to add bitlife 😭`,
     `:0`,
     `Roblox? Cringe!`,
     `i wanted free vbucks :(`,
     `what the dog doin?`,
-    `powered by 20 Gigs of RAM!`,
+    `powered by 20gb of ram!`,
     `Avocados \ud83e\udd51 from Mexico \ud83c\uddf2\ud83c\uddfd`,
     `if you are using Microsoft Edge, you need some help.`,
     `made in the uk`,
@@ -102,6 +102,12 @@ const phrases = [
     `as seen on tv!`,
     `how many sides does a circle have? (ans 3 🤫)`,
     `you can read btw`,
+    `now with less bugs`,
+    `hello, this is microsoft tech support`,
+    `press ctrl+shift+q+q for free money`,
+    `doot doot`,
+    `{ip}`,
+    `◉_◉`,
 ];
 
 const paragraph = document.getElementById('dynamicParagraph');
@@ -115,7 +121,7 @@ function changeText() {
   if (typeof randomPhrase === "string") {
     // Replace {ip} on the fly
     if (randomPhrase.includes("{ip}")) {
-      randomPhrase = randomPhrase.replace("{ip}", userIP || "unknown IP");
+      randomPhrase = randomPhrase.replace("{ip}", userIP || "fetch error");
     }
     paragraph.textContent = randomPhrase;
   } else if (randomPhrase.type === "image") {
