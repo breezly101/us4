@@ -67,7 +67,7 @@ const phrases = [
     `hey all nexus users`,
     `https://youtube.com/watch?v=dQw4w9WgXcQ`,
     `whoa is this a splash text`,
-    `ur ip: {ip} dont believe me, hit ctrl + shift + i and click on console`
+    `ur ip: {ip} dont believe me, hit ctrl + shift + i and click on console`,
     `teacher gave us too much homework 😭`,
     `downloading your passwords...`,
     `the wifi went out... again 💀`,
@@ -105,41 +105,37 @@ const phrases = [
 ];
 
 const paragraph = document.getElementById('dynamicParagraph');
-
 paragraph.style.userSelect = 'none';
 
 function changeText() {
     const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
 
-    if (typeof randomPhrase === "string") {
-        paragraph.textContent = randomPhrase;
-    } else if (randomPhrase.type === "image") {
-        paragraph.innerHTML = `<img src="${randomPhrase.src}" alt="Splash Image" style="max-width: ${randomPhrase.width};">`;
-    } else if (randomPhrase.type === "video") {
-        paragraph.innerHTML = `<video ${randomPhrase.other} autoplay style="max-width: ${randomPhrase.width}; height: auto; "> <source src="${randomPhrase.src}" type="video/mp4"> </video>`;
+function changeText() {
+  let randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+
+  if (typeof randomPhrase === "string") {
+    // Replace {ip} on the fly
+    if (randomPhrase.includes("{ip}")) {
+      randomPhrase = randomPhrase.replace("{ip}", userIP || "unknown IP");
     }
+    paragraph.textContent = randomPhrase;
+  } else if (randomPhrase.type === "image") {
+    paragraph.innerHTML = `<img src="${randomPhrase.src}" alt="Splash Image" style="max-width: ${randomPhrase.width};">`;
+  } else if (randomPhrase.type === "video") {
+    paragraph.innerHTML = `<video ${randomPhrase.other} autoplay style="max-width: ${randomPhrase.width}; height: auto;"><source src="${randomPhrase.src}" type="video/mp4"></video>`;
+  }
 }
 
-paragraph.addEventListener('click', changeText);
-window.onload = changeText;
-console.log("IPv4 fetched from origin");
+let userIP = null;
 
 window.onload = async () => {
   try {
     const res = await fetch('https://api.ipify.org?format=json');
     const data = await res.json();
-
-    if (data.ip) {
-      // Replace {ip} with actual IP in all phrases that contain it
-      for (let i = 0; i < phrases.length; i++) {
-        if (phrases[i].includes("{ip}")) {
-          phrases[i] = phrases[i].replace("{ip}", data.ip);
-        }
-      }
-    }
+    userIP = data.ip;
+    console.log("IPv4 fetched from origin:", userIP);
   } catch (e) {
     console.error("Failed to get IP", e);
   }
-
   changeText();
 };
