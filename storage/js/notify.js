@@ -75,6 +75,6 @@ function createNotification(message) {
 }
 
 window.onload = () => {
-    const message = `Nexus V3 will be releasing in the 2025-2026 school year. Visit our old site here: "https://breezly101.github.io/nexus"`;
+    const message = `Nexus V3 will be releasing in the 2025-2026 school year. Visit our old site here: https://breezly101.github.io/nexus`;
     createNotification(message);
 };
