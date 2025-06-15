@@ -1,1 +1,1 @@
-alert("should i go tell our hoy?");
+alert("not appropiate.");
