@@ -109,6 +109,7 @@ const phrases = [
     `doot doot`,
     `{ip}`,
     `◉_◉`,
+    `heres a free bare: vplaza.org/bare`,
 ];
 
 const paragraph = document.getElementById('dynamicParagraph');
