@@ -1,6 +1,6 @@
 self.__uv$config = {
     prefix: '/static/load/',
-    bare:'https://vplaza.org/bare/',
+    bare:'https://backend.infrared.bomberfish.ca/',
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
     handler: '/static/uv/uv.handler.js',
@@ -17,6 +17,7 @@ self.__uv$config = {
 // https://vplaza.org/bare/ - fast
 // https://v2202412246404304352.megasrv.de/bare/ - mid
 // https://muddy-rice-ba72.acsessremote.workers.dev/
+// https://backend.infrared.bomberfish.ca/
 
 // Blocked Websites
 
