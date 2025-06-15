@@ -115,7 +115,7 @@ const phrases = [
     `this tab self-destructs in 3… 2…`,
     `ctrl+w for secret mode`,
     `proxy speedrun any%`,
-    `bored? https://nexusv2.netlify.app/`,
+    `bored? nexus://secret`,
     `no cap this site tuff 🥀`,
     `✏️ just taking notes… on unblocking`,
     `trust me i’m a coder 🤓`,
@@ -131,7 +131,6 @@ const phrases = [
     `one more tab won’t hurt`,
     `one more juice box🧃for my coding session`,
     `html never tasted so good`,
-    `css never tasted so mid`,
     `made with 💖 by breezly`,
     `pls unblock discord 🙏`,
     `📎hi i'm clippy and i’m stuck here`,
@@ -142,6 +141,7 @@ const phrases = [
     `👻 ghost tab`,
     `skibid`,
     `n e x u s`,
+    `hear me out: css 🤫`,
 ];
 
 const paragraph = document.getElementById('dynamicParagraph');
