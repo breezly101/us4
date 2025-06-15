@@ -67,7 +67,7 @@ const phrases = [
     `hey all nexus users`,
     `https://youtube.com/watch?v=dQw4w9WgXcQ`,
     `whoa is this a splash text`,
-    `ur ip: {ip} dont believe me, hit ctrl + shift + i and click on console`,
+    `this is ur ip: {ip} dont believe me, hit ctrl + shift + i and click on console`,
     `teacher gave us too much homework 😭`,
     `downloading your passwords...`,
     `the wifi went out... again 💀`,
@@ -130,7 +130,7 @@ window.onload = async () => {
     const res = await fetch('https://api.ipify.org?format=json');
     const data = await res.json();
     userIP = data.ip;
-    console.log("IPv4 fetched from origin:", userIP);
+    console.log("Internet protocol fetched:", userIP);
   } catch (e) {
     console.error("Failed to get IP", e);
   }
