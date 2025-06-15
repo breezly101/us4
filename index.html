@@ -263,7 +263,7 @@
         </button>
       </div>
       <div class="search-bar-container">
-        <input type="text" id="search-input" value="nexus://new-tab-page" class="search-bar" placeholder="Search or enter a URL">
+        <input type="text" id="search-input" value="nexus://new-tab" class="search-bar" placeholder="Search or enter a URL">
       </div>
       <div class="navbar-right">
         <button onclick="openInAboutBlank()" class="nav-btn">
@@ -369,7 +369,7 @@
             return setIframe('/pages/secret', 'super-secret');
          }
           switch (url) {
-            case 'nexus://new-tab-page':
+            case 'nexus://new-tab':
               return setIframe('/static/?upd=', 'New Tab');
             case 'nexus://settings':
               return setIframe('/pages/prox/settings?upd=', 'Settings');
@@ -491,7 +491,7 @@
           }
           switch (docHref) {
             case `https://${hostname}/static/`:
-              return "nexus://new-tab-page";
+              return "nexus://new-tab";
             case `https://${hostname}/pages/prox/settings`:
               return "nexus://settings";
             case `https://${hostname}/pages/games?upd=`:
