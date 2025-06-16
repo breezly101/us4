@@ -1,4 +1,4 @@
-if (typeof panicKey === 'undefined') {
+(() => {
   const panicKey = localStorage.getItem('panicKey');
   const panicUrl = localStorage.getItem('panicUrl');
   if (panicKey && panicUrl) {
@@ -8,4 +8,4 @@ if (typeof panicKey === 'undefined') {
       }
     });
   }
-}
+})();
