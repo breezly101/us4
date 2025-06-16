@@ -159,9 +159,10 @@ paragraph.style.userSelect = 'none';
 
 let userIP = null;
 let flipped = false;
+let currentPhrase = null;
 
-function toggleFlip() {
-  flipped = !flipped;
+function setFlip(state) {
+  flipped = state;
   const rotation = flipped ? "180deg" : "0deg";
   ["transform", "-ms-transform", "-webkit-transform", "-o-transform", "-moz-transform"]
     .forEach(prefix => {
@@ -169,8 +170,17 @@ function toggleFlip() {
     });
 }
 
+function getRandomPhrase() {
+  let phrase;
+  do {
+    phrase = phrases[Math.floor(Math.random() * phrases.length)];
+  } while (phrase === currentPhrase);
+  return phrase;
+}
+
 function changeText() {
-  let randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+  let randomPhrase = getRandomPhrase();
+  currentPhrase = randomPhrase;
 
   if (typeof randomPhrase === "string") {
     if (randomPhrase.includes("{ip}")) {
@@ -178,14 +188,18 @@ function changeText() {
     }
     paragraph.textContent = randomPhrase;
 
-    // Flip page if the phrase is this:
     if (randomPhrase === "whoops the page did a flippy flip 🙃") {
-      toggleFlip();
+      setFlip(true);
+    } else if (flipped) {
+      // If page is flipped but phrase isn't flip phrase, reset flip
+      setFlip(false);
     }
   } else if (randomPhrase.type === "image") {
     paragraph.innerHTML = `<img src="${randomPhrase.src}" alt="Splash Image" style="max-width: ${randomPhrase.width};">`;
+    if (flipped) setFlip(false); // reset flip if currently flipped
   } else if (randomPhrase.type === "video") {
     paragraph.innerHTML = `<video ${randomPhrase.other} autoplay style="max-width: ${randomPhrase.width}; height: auto;"><source src="${randomPhrase.src}" type="video/mp4"></video>`;
+    if (flipped) setFlip(false);
   }
 }
 
