@@ -151,7 +151,7 @@ const phrases = [
     `error 404: page not found`,
     `pls dont block the site 🙏`,
     `szvy central sucks`,
-    `whoops the page did a flippy flip 🙃`,
+    `🙂 dıןɟ ʎddıןɟ ɐ pıp ǝƃɐd ǝɥʇ sdooɥʍ`,
 ];
 
 const paragraph = document.getElementById('dynamicParagraph');
@@ -188,7 +188,7 @@ function changeText() {
     }
     paragraph.textContent = randomPhrase;
 
-    if (randomPhrase === "whoops the page did a flippy flip 🙃") {
+    if (randomPhrase === "🙂 dıןɟ ʎddıןɟ ɐ pıp ǝƃɐd ǝɥʇ sdooɥʍ") {
       setFlip(true);
     } else if (flipped) {
       // If page is flipped but phrase isn't flip phrase, reset flip
