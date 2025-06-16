@@ -9,7 +9,6 @@ const phrases = [
     { type: "image", width: '45%', src: `/storage/images/splash2.png` },
     { type: "image", width: '35%', src: `/storage/images/splash3.png` },
     { type: "image", width: '40%', src: `/storage/images/splash4.gif` },
-    /*{ type: "image", width: '400px', src: `https://c.tenor.com/9MVlipGuNioAAAAC/tenor.gif` },*/
     `i accidentally muted the teacher`,
     `my homework ate my dog`,
     `late to class again`,
@@ -143,22 +142,46 @@ const phrases = [
     `n e x u s`,
     `hear me out: css 🤫`,
     `1 vCPU, 4 GB RAM, 20 GB Storage`,
+    `chrome://inducebrowsercrashforrealz`,
+    `sup 👋`,
+    `oops.. i thought that tab was muted`,
+    `made on github, deployed on netlify`,
+    `best proxy? lmk`,
+    `nexus ≫ 55gms`, 
+    `error 404: page not found`,
+    `pls dont block the site 🙏`,
+    `szvy central sucks`,
+    `whoops the page did a flippy flip 🙃`,
 ];
 
 const paragraph = document.getElementById('dynamicParagraph');
 paragraph.style.userSelect = 'none';
 
 let userIP = null;
+let flipped = false;
+
+function toggleFlip() {
+  flipped = !flipped;
+  const rotation = flipped ? "180deg" : "0deg";
+  ["transform", "-ms-transform", "-webkit-transform", "-o-transform", "-moz-transform"]
+    .forEach(prefix => {
+      document.body.style[prefix] = `rotate(${rotation})`;
+    });
+}
 
 function changeText() {
   let randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
 
   if (typeof randomPhrase === "string") {
-    // Replace {ip} on the fly
     if (randomPhrase.includes("{ip}")) {
       randomPhrase = randomPhrase.replace("{ip}", userIP || "fetch error");
     }
     paragraph.textContent = randomPhrase;
+
+    // Flip page if the phrase is this:
+    if (randomPhrase === "whoops the page did a flippy flip 🙃") {
+      toggleFlip();
+    }
   } else if (randomPhrase.type === "image") {
     paragraph.innerHTML = `<img src="${randomPhrase.src}" alt="Splash Image" style="max-width: ${randomPhrase.width};">`;
   } else if (randomPhrase.type === "video") {
