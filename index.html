@@ -416,7 +416,7 @@
             } else if (looksLikeURL) {
               finalURL = 'http://' + mapped;
             } else {
-              finalURL = `https://duckduckgo.com/?q=${encodeURIComponent(mapped)}&kp=1`;
+              finalURL = `https://duckduckgo.com/?q=${encodeURIComponent(mapped)}`;
             }
           }
           iframe.src = isInternal ? mapped : `/static/embed?p=${finalURL}`;
