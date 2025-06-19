@@ -368,10 +368,6 @@
           if (url === 'nexus://secret') {
             return setIframe('/pages/secret', 'super-secret');
          }
-          }
-          if (url === 'nexus://idiot') {
-            return setIframe('/pages/idiot/index.html', 'idiot');
-         }
           switch (url) {
             case 'nexus://new-tab':
               return setIframe('/static/?upd=', 'New Tab');
@@ -395,8 +391,6 @@
               return setIframe('/pages/extra/data-use', 'Data Usage');
             case 'nexus://secret':
               return setIframe('/pages/secret', 'super-secret');
-            case 'nexus://idiot':
-              return setIframe('/pages/idiot/index.html', 'idiot');
           }
         } catch (e) {
           console.error('internal page failed:', e);
@@ -521,8 +515,6 @@
               return "nexus://secret";
             case `https://${hostname}/storage/images/cheese.png`:
               return "nexus://cheese.png";
-            case `https://${hostname}/pages/idiot/`:
-              return "nexus://idiot";
             default:
               if (docHref.startsWith(hostPrefix)) {
                 return decodeURI(docHref.replace(hostPrefix, ""));
