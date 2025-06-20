@@ -1,0 +1,42 @@
+Terms & Conditions
+
+By downloading or using this app, you agree to these terms, so please read them carefully before proceeding. You may not copy, modify, or tamper with the app, any part of it, or our trademarks in any way. You are also prohibited from attempting to extract the source code, translating the app into other languages, or creating derivative versions.
+
+The app, along with all related trademarks, copyrights, database rights, and other intellectual property, remains the property of Rehan Gujjar.
+
+Rehan Gujjar is dedicated to ensuring the app remains as effective and user-friendly as possible. Therefore, we reserve the right to make changes to the app or its services at any time and for any reason. However, we will never charge for the app or its services without clearly explaining what you are paying for.
+
+The app stores and processes personal data you provide to deliver its services. It is your responsibility to keep your device and access to the app secure. We recommend that you do not jailbreak or root your device, which involves removing software restrictions imposed by the official operating system. Doing so could expose your device to malware or vulnerabilities and may cause the app to stop functioning properly.
+
+The app may use third-party services that have their own Terms and Conditions. Here are links to some of the third-party service providers used by the app:
+
+Google Play Services
+
+Facebook
+
+AppLovin
+
+Please note that Rehan Gujjar is not responsible for certain aspects of the app's performance. Some features require an active internet connection—via Wi-Fi or your mobile network. If you do not have access to the internet or have used up your data allowance, the app may not function fully.
+
+If you're using the app outside a Wi-Fi zone, your agreement with your mobile provider still applies, and you may be charged for data usage, including roaming charges. By using the app, you accept responsibility for any such costs. If you’re not the device’s bill payer, we assume you have permission from the bill payer to use the app.
+
+Similarly, Rehan Gujjar cannot be held responsible if the app fails due to your device being out of battery or not functioning properly.
+
+While we aim to keep the app up-to-date and running smoothly, Rehan Gujjar relies on third parties for some information and services. Therefore, we cannot be held liable for any loss, direct or indirect, resulting from reliance on the app's functionality.
+
+The app is currently available on Android. Requirements may change, and you may need to download updates to continue using it. Rehan Gujjar does not guarantee that the app will always be updated to remain compatible with your device. You agree to accept updates when offered. We may also decide to discontinue the app at any time without prior notice. Upon termination:
+
+The rights and licenses granted to you under these terms will end
+
+You must stop using the app and, if necessary, delete it from your device
+
+Changes to These Terms and Conditions
+
+We may update our Terms and Conditions from time to time. You are advised to review this page periodically for any changes. Updates will be posted on this page.
+
+Effective Date: 2023-12-24
+
+Contact Us
+
+If you have any questions or suggestions about these Terms and Conditions, feel free to reach out to us at:
+madwolf395@gmail.com
