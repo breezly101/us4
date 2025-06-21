@@ -152,6 +152,8 @@ const phrases = [
     `pls dont block the site 🙏`,
     `szvy central sucks`,
     `🙂 dıןɟ ʎddıןɟ ɐ pıp ǝƃɐd ǝɥʇ sdooɥʍ`,
+    `click on the cloud for roms ☁️`,
+    `you can play fh5 on gfn!`,
 ];
 
 const paragraph = document.getElementById('dynamicParagraph');
