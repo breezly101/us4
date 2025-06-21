@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta property="og:title" content="US4 | Credits">
-    <meta property="og:description" content="Credits page for US4">
+    <meta property="og:title" content="Nexus | Roms">
+    <meta property="og:description" content="Play your favorite roms like Game Boy Advance, PS1, Nintendo 64 and more!">
     <meta property="og:image" content="/storage/images/logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +16,7 @@
 <body>
 
 <script src="/particles.js"></script>
-<script src="/app.js"></script>
+  <script src="/app.js"></script>
 <div id="particles-js"></div>
 
 <div class="navbar">
@@ -25,114 +25,341 @@
             <img src="/storage/images/logo.png" alt="logo">
         </a>
     </div>
-    <div class="right-side">
-        <script type="text/javascript" src="/storage/js/nav.js"></script>
-    </div>
+<div class="right-side">
+     <script type="text/javascript" src="/storage/js/nav.js"></script>
 </div>
-
-<div class="game-title">Credits</div>
-
-<div class="game-grid" id="gameGrid">
-    <div class="game-button">
-        <a href="https://voucan.is-a.dev" target="_blank">
-            <img src="https://voucan.github.io/vcngrey.png" alt="Voucan">
-            <div class="overlay-text">Voucan: Website, Games, Apps</div>
-        </a>
-    </div>
-    <div class="game-button">
-        <a href="https://brunys.org" target="_blank">
-            <img src="https://mexi.lol/devpfps/bruny.jpg" alt="Brunys">
-            <div class="overlay-text">Brunys: Games</div>
-        </a>
-    </div>
-    <div class="game-button">
-        <a href="https://a456pur.dev/" target="_blank">
-            <img src="https://a456pur.dev/images/astra.jpg" alt="Astralogical">
-            <div class="overlay-text">Astralogical: Thirty Dollar Website</div>
-        </a>
-    </div>
-    <div class="game-button">
-        <a href="https://github.com/titaniumnetwork-dev" target="_blank">
-            <img src="https://avatars.githubusercontent.com/u/47227492?s=200&v=4" alt="Titanium Network">
-            <div class="overlay-text">Titanium Network: Ultraviolet</div>
-        </a>
-    </div>
-    <div class="game-button">
-        <a href="https://benrogo.net" target="_blank">
-            <img src="https://benrogo.net/logo.png" alt="Benrogo">
-            <div class="overlay-text">Benrogo: Bare Server</div>
-        </a>
-    </div>
-    <div class="game-button">
-        <a href="https://discord.com/users/1152700631514099793" target="_blank">
-            <img src="https://cdn.discordapp.com/avatars/1152700631514099793/81df95bb8c5459481e8bc0466f51e812.webp?size=4096" alt="Nobody">
-            <div class="overlay-text">Nobody: Art</div>
-        </a>
-    </div>
-    <div class="game-button">
-        <a href="https://mexi.lol/" target="_blank">
-            <img src="https://mexi.lol/devpfps/jv.jpg" alt="jv">
-            <div class="overlay-text">jv: Background.js</div>
-        </a>
-    </div>
-    <div class="game-button">
-        <a href="https://jobi.one/" target="_blank">
-            <img src="https://mexi.lol/devpfps/jobapplication.png" alt="Jobi">
-            <div class="overlay-text">Jobi: SW register script</div>
-        </a>
-    </div>
 </div>
+    <div class="game-title">ROMS</div>
+    <div class="games-title">Select from a variety of roms!</div> 
 
-<script>
-    function checkGridAlignment() {
-        const gameGrid = document.getElementById('gameGrid');
-        const buttons = document.querySelectorAll('.game-button');
-        const pageWidth = window.innerWidth;
+    <div class="search-bar-container">
+        <input type="text" id="gameSearch" class="search-bar" placeholder="Search for a rom..." oninput="filterGames()">
+    </div>
 
-        buttons.forEach(button => {
-            const rect = button.getBoundingClientRect();
-            const distanceToRightEdge = pageWidth - rect.right;
+    <div class="game-grid" id="gameGrid">
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/retro-bowl/">
+                <img src="images/retro-bowl.png" alt="Retro Bowl">
+                <div class="overlay-text">Retro Bowl</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/rb-college/">
+                <img src="images/rb-college.png" alt="Retro Bowl College">
+                <div class="overlay-text">Retro Bowl College</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/blockblast/">
+                <img src="images/blockblast.png" alt="Block Blast">
+                <div class="overlay-text">Block Blast</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/clusterrush/">
+                <img src="images/clusterrush.png" alt="Cluster Rush">
+                <div class="overlay-text">Cluster Rush</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/subway-surfers/">
+                <img src="images/subway.jfif" alt="Subway Surfers">
+                <div class="overlay-text">Subway Surfers</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/crossyroad/">
+                <img src="images/crossyroad.png" alt="Crossy Road">
+                <div class="overlay-text">Crossy Road</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/static/embed?p=https://amongusplay.online">
+                <img src="images/amongus.png" alt="Among Us">
+                <div class="overlay-text">Among Us</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/boxing-random/">
+                <img src="images/boxingrandom.jfif" alt="Boxing Random">
+                <div class="overlay-text">Boxing Random</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/soccer-random/">
+                <img src="images/soccerrandom.jfif" alt="Soccer Random">
+                <div class="overlay-text">Soccer Random</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/basket-random/">
+                <img src="images/basketrandom.jfif" alt="Basket Random">
+                <div class="overlay-text">Basket Random</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/volley-random/">
+                <img src="images/volleyrandom.jfif" alt="Volley Random">
+                <div class="overlay-text">Volley Random</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/run-3/">
+                <img src="images/run3.png" alt="Run 3">
+                <div class="overlay-text">Run 3</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/totm/">
+                <img src="images/totm.png" alt="Tomb Of The Mask">
+                <div class="overlay-text">Tomb Of The Mask</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/OvO/">
+                <img src="images/OvO.jfif" alt="OvO">
+                <div class="overlay-text">OvO</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/microsoft-surf/">
+                <img src="images/microsoftsurf.png" alt="MicrosoftSurf">
+                <div class="overlay-text">Microsoft Surf</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/bitlife/">
+                <img src="images/bitlife.png" alt="Bitlife">
+                <div class="overlay-text">who even plays ts 🥀</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/mariokart-ds/">
+                <img src="images/mariokartds.jpg" alt="Mario Kart DS">
+                <div class="overlay-text">Mario Kart DS</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/static/embed?p=https://nbadebate.com/index.php?game=bbros">
+                <img src="images/basketballbros.png" alt="Basketball Bros">
+                <div class="overlay-text">Basketball Bros</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/2048/">
+                <img src="images/2048.png" alt="2048">
+                <div class="overlay-text">2048</div>
+            </a>
+        </div> 
+        <div class="game-button">
+           <a href="/static/embed?p=https://html-classic.itch.zone/html/7803470/index.html?v=1732313647/">
+               <img src="images/63redux.png" alt="Super Mario 63 (Redux)">
+               <div class="overlay-text">Super Mario 63 (Redux)</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/sm64/">
+                <img src="images/sm64.png" alt="Super Mario 64">
+                <div class="overlay-text">Super Mario 64</div>
+            </a>
+        </div>
+        <div class="game-button">
+           <a href="/pages/games-frame?url=/pages/games/sm63/">
+               <img src="images/63flash.png" alt="Super Mario 63 (Flash)">
+               <div class="overlay-text">Super Mario 63 (Flash)</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/kirka/">
+                <img src="images/kirka.png" alt="Kirka io">
+                <div class="overlay-text">Kirka</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/superstar-saga/">
+                <img src="images/superstarsaga.webp" alt="Mario & Luigi - Superstar Saga">
+                <div class="overlay-text">Mario & Luigi - Superstar Saga</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/static/embed?p=https://easyfun.gg/embed/roblox.html">
+                <img src="images/rblx.png" alt="Roblox">
+                <div class="overlay-text">Roblox</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/static/load/hvtrs8%2F-gcmgs%2Ccpaxyeaoeq.aoo%2Fgn%5DUQ%2Fqmcsj-iaptq%2Fknfez.jtol%3Dv%3F1%2C313-">
+                <img src="images/smashkarts.avif" alt="Smashkarts">
+                <div class="overlay-text">Smashkarts</div>
+            </a>
+        </div>
+        <div class="game-button">
+           <a href="/pages/games-frame?url=/pages/games/pacman">
+               <img src="images/pacman.png" alt="Pacman">
+               <div class="overlay-text">Pacman</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/static/embed?p=https://infinite-craft.org/">
+                <img src="images/infcraft.png" alt="Infinite Craft">
+                <div class="overlay-text">Infinite Craft</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/static/embed?p=https://us4-i.global.ssl.fastly.net/stetris/SANDTRIS-main/">
+                <img src="images/sandtris.png" alt="Sandtris">
+                <div class="overlay-text">Sandtris</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/eaglercraft/">
+                <img src="images/eaglercraft.png" alt="Eaglercraft Minecraft">
+                <div class="overlay-text">Eaglercraft (Minecraft)</div>
+            </a>
+        </div>
+        <div class="game-button">
+              <a href="/pages/games-frame?url=/pages/games/engine-sim/">
+                <img src="images/engine-sim.png" alt="Engine Simulator">
+                <div class="overlay-text">Engine Simulator</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/static/embed?p=https://games.crazygames.com/en_US/drift-hunters/index.html?v=1.333/">
+                <img src="images/drifthunters.png" alt="Drift Hunters">
+                <div class="overlay-text">Drift Hunters</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/doodlejump/">
+                <img src="images/doodlejump.webp" alt="Doodle Jump">
+                <div class="overlay-text">Doodle Jump</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/static/embed?p=https://ozh.github.io/cookieclicker/">
+                <img src="images/cookieclicker.jpg" alt="Cookie Clicker">
+                <div class="overlay-text">Cookie Clicker</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/chrome-dino">
+                <img src="images/dino.png" alt="Chrome Dino">
+                <div class="overlay-text">Chrome Dino</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/new-smb/">
+                <img src="images/new-smb.png" alt="New Super Mario Bros.">
+                <div class="overlay-text">New Super Mario Bros.</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/static/embed?p=https://azgames.io/smashy-road.embed/">
+                <img src="images/smashyroad.png" alt="Smashy Road">
+                <div class="overlay-text">Smashy Road</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/static/embed?p=https://kdata1.com/2024/04/scrap-divers/">
+                <img src="images/scrapdivers.png" alt="Scrap Divers">
+                <div class="overlay-text">Scrap Divers</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/static/embed?p=https://webosu.online/">
+                <img src="/pages/apps/images/osu.png" alt="osu! (Web)">
+                <div class="overlay-text">osu! (Web)</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/bad-piggies/">
+                <img src="images/badpiggies.png" alt="Bad Piggies">
+                <div class="overlay-text">Bad Piggies</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/tiny-fishing/">
+                <img src="/pages/games/tiny-fishing/thumb.png" alt="Tiny Fishing">
+                <div class="overlay-text">Tiny Fishing</div>
+            </a>
+        </div>
+        <div class="game-button">
+            <a href="/pages/games-frame?url=/pages/games/snowrider/">
+                <img src="images/snowrider.webp" alt="Snow Rider 3D">
+                <div class="overlay-text">Snow Rider 3D</div>
+            </a>
+        </div>
+    </div>
 
-            if (distanceToRightEdge < 75) {
-                button.style.clear = 'both';
-            } else {
-                button.style.clear = 'none';
-            }
+    <script>
+        function filterGames() {
+            const searchInput = document.getElementById('gameSearch').value.toLowerCase();
+            const games = document.querySelectorAll('.game-button');
+
+            games.forEach(game => {
+                const gameTitle = game.querySelector('.overlay-text').textContent.toLowerCase();
+                if (gameTitle.includes(searchInput)) {
+                    game.style.display = 'block';
+                } else {
+                    game.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+    <script>
+        function checkGridAlignment() {
+            const gameGrid = document.getElementById('gameGrid');
+            const buttons = document.querySelectorAll('.game-button');
+            const pageWidth = window.innerWidth;
+            
+            buttons.forEach(button => {
+                const rect = button.getBoundingClientRect();
+                const distanceToRightEdge = pageWidth - rect.right;
+                
+             
+                if (distanceToRightEdge < 75) {
+                    button.style.clear = 'both';
+                } else {
+                    button.style.clear = 'none';
+                }
+            });
+        }
+        window.addEventListener('resize', checkGridAlignment);
+        window.addEventListener('load', checkGridAlignment);
+    </script>
+
+    <script type="text/javascript" src="/storage/js/settings-1.js"></script>
+    <script type="text/javascript" src="/storage/js/background.js"></script>
+    <script type="text/javascript" src="/storage/js/resort.js"></script>
+    <script type="text/javascript" src="/storage/js/cheese-algorithm.js"></script>
+
+<!-- Ultraviolet -->
+    <script src="/static/uv/uv.bundle.js" defer></script>
+    <script src="/static/uv/uv.config.js" defer></script>
+    <script src="/static/register-sw.js" defer></script>
+    <script src="/static/search.js" defer></script>
+    <script src="/static/index.js" defer></script>
+
+    <script>
+    async function regsw(){
+        await navigator.serviceWorker.register("/static/uv-sw.js", {
+            scope: "/static/",
         });
     }
-    window.addEventListener('resize', checkGridAlignment);
-    window.addEventListener('load', checkGridAlignment);
-</script>
 
-<script type="text/javascript" src="../storage/js/settings-1.js"></script>
-
-<script>
-    function filterGames() {
-        const searchInput = document.getElementById('gameSearch').value.toLowerCase();
-        const games = document.querySelectorAll('.game-button');
-
-        games.forEach(game => {
-            const gameTitle = game.querySelector('.overlay-text').textContent.toLowerCase();
-            if (gameTitle.includes(searchInput)) {
-                game.style.display = 'block';
-            } else {
-                game.style.display = 'none';
-            }
-        });
-    }
-</script>
+    regsw();
+    </script>
+<!-- Ultraviolet -->
 
 <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const updParam = urlParams.get('upd');
+  const urlParams = new URLSearchParams(window.location.search);
+  const updParam = urlParams.get('upd');
 
-    if (updParam === null) {
-        window.location.href = '/';
-    }
+  if (updParam === null) {
+    window.location.href = '/';
+  }
 </script>
 
-<script type="text/javascript" src="/storage/js/notify.js"></script>
-<script type="text/javascript" src="/storage/js/background.js"></script>
-<script type="text/javascript" src="/storage/js/cheese-algorithm.js"></script>
 </body>
 </html>
