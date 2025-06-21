@@ -287,6 +287,9 @@
       <button class="nav-btn" onclick="setIframe('/pages/games?upd=', 'Games')">
         <i class="fas fa-gamepad"></i>
       </button>
+      <button class="nav-btn" onclick="setIframe('/pages/roms?upd=', 'Roms')">
+        <i class="fa-solid fa-book"></i>
+      </button>
       <button class="nav-btn" onclick="setIframe('/pages/heartive?upd=', 'Media')">
         <i class="fa-solid fa-video"></i>
       </button>
@@ -295,9 +298,6 @@
       </button>
       <button class="nav-btn" onclick="setIframe('/pages/partners?upd=', 'Partners')">
         <i class="fa-solid fa-users"></i>
-      </button>
-      <button class="nav-btn" onclick="setIframe('/pages/credits?upd=', 'Credits')">
-        <i class="fa-solid fa-book"></i>
       </button>
       <button class="nav-btn" onclick="setIframe('/pages/data?upd=', 'Data')">
         <i class="fa-solid fa-file-arrow-down"></i>
@@ -381,8 +381,8 @@
               return setIframe('/pages/apps?upd=', 'Apps');
             case 'nexus://partners':
               return setIframe('/pages/partners?upd=', 'Partners');
-            case 'nexus://credits':
-              return setIframe('/pages/credits?upd=', 'Credits');
+            case 'nexus://roms':
+              return setIframe('/pages/roms?upd=', 'roms');
             case 'nexus://extra':
               return setIframe('/pages/extra?upd=', 'Extra');
             case 'nexus://data':
@@ -502,8 +502,8 @@
               return "nexus://apps";
             case `https://${hostname}/pages/partners?upd=`:
               return "nexus://partners";
-            case `https://${hostname}/pages/credits?upd=`:
-              return "nexus://credits";
+            case `https://${hostname}/pages/roms?upd=`:
+              return "nexus://roms";
             case `https://${hostname}/pages/extra?upd=`:
               return "nexus://extra";
             case `https://${hostname}/pages/data?upd=`:
